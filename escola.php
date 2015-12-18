@@ -1,0 +1,31 @@
+<?php
+error_reporting(E_STRICT);
+error_reporting(E_ALL);
+ini_set("display_errors", 1);
+
+ini_set('memory_limit', '-1');
+set_time_limit(0);
+$infos = array();
+$file_name = "ESCOLAS.csv";
+$fp = fopen("escolas.json", "a");
+$dados ='{
+	"escolas":{';
+	echo $dados;
+$escreve = fwrite($fp, $dados);
+if (($handle = fopen($file_name, "r")) !== FALSE) {
+    while (($data = fgetcsv($handle, 0, "|")) !== FALSE) {
+		for ($i = 0; $i <= 140; $i++) {
+		if ($data[$i] == ""){
+				$data[$i] = "100";
+			} 
+		}
+		
+	$dados1 = '"ANO_CENSO":'. $data[0] . ',"PK_COD_ENTIDADE":'. $data[1] . ',"NO_ENTIDADE":"'. $data[2] . '","COD_ORGAO_REGIONAL_INEP":"'. $data[3] . '","DESC_SITUACAO_FUNCIONAMENTO":'. $data[4] . ',"DESC_SITUACAO_CENSO":'. $data[5] . ',"DT_ANO_LETIVO_INICIO":"'. $data[6] . '","DT_ANO_LETIVO_TERMINO":"'. $data[7] . '","FK_COD_ESTADO":'. $data[8] . ',"FK_COD_MUNICIPIO":'. $data[9] . ',"FK_COD_DISTRITO":'. $data[10] . ',"ID_DEPENDENCIA_ADM":'. $data[11] . ',"ID_LOCALIZACAO":'. $data[12] . ',"DESC_CATEGORIA_ESCOLA_PRIVADA":'. $data[13] . ',"ID_CONVENIADA_PP":'. $data[14] . ',"ID_TIPO_CONVENIO_PODER_PUBLICO":'. $data[15] . ',"ID_MANT_ESCOLA_PRIVADA_EMP":'. $data[16] . ',"ID_MANT_ESCOLA_PRIVADA_ONG":'. $data[17] . ',"ID_MANT_ESCOLA_PRIVADA_SIND":'. $data[18] . ',"ID_MANT_ESCOLA_PRIVADA_SIST_S":'. $data[19] . ',"ID_MANT_ESCOLA_PRIVADA_S_FINS":'. $data[20] . ',"NUM_CNPJ_ESCOLA_PRIVADA":"'. $data[21] . '","NUM_CNPJ_UNIDADE_EXECUTORA":"'. $data[22] . '","ID_DOCUMENTO_REGULAMENTACAO":'. $data[23] . ',"ID_LOCAL_FUNC_PREDIO_ESCOLAR":'. $data[24] . ',"ID_LOCAL_FUNC_SALAS_EMPRESA":'. $data[25] . ',"ID_LOCAL_FUNC_SOCIOEDUCATIVA":'. $data[26] . ',"ID_LOCAL_FUNC_UNID_PRISIONAL":'. $data[27] . ',"ID_LOCAL_FUNC_TEMPLO_IGREJA":'. $data[28] . ',"ID_LOCAL_FUNC_CASA_PROFESSOR":'. $data[29] . ',"ID_LOCAL_FUNC_GALPAO":'. $data[30] . ',"ID_LOCAL_FUNC_OUTROS":'. $data[31] . ',"ID_LOCAL_FUNC_SALAS_OUTRA_ESC":'. $data[32] . ',"ID_ESCOLA_COMP_PREDIO":'. $data[33] . ',"ID_AGUA_FILTRADA":'. $data[34] . ',"ID_AGUA_REDE_PUBLICA":'. $data[35] . ',"ID_AGUA_POCO_ARTESIANO":'. $data[36] . ',"ID_AGUA_CACIMBA":'. $data[37] . ',"ID_AGUA_FONTE_RIO":'. $data[38] . ',"ID_AGUA_INEXISTENTE":'. $data[39] . ',"ID_ENERGIA_REDE_PUBLICA":'. $data[40] . ',"ID_ENERGIA_GERADOR":'. $data[41] . ',"ID_ENERGIA_OUTROS":'. $data[42] . ',"ID_ENERGIA_INEXISTENTE":'. $data[43] . ',"ID_ESGOTO_REDE_PUBLICA":'. $data[44] . ',"ID_ESGOTO_FOSSA":'. $data[45] . ',"ID_ESGOTO_INEXISTENTE":'. $data[46] . ',"ID_LIXO_COLETA_PERIODICA":'. $data[47] . ',"ID_LIXO_QUEIMA":'. $data[48] . ',"ID_LIXO_JOGA_OUTRA_AREA":'. $data[49] . ',"ID_LIXO_RECICLA":'. $data[50] . ',"ID_LIXO_ENTERRA":'. $data[51] . ',"ID_LIXO_OUTROS":'. $data[52] . ',"ID_SALA_DIRETORIA":'. $data[53] . ',"ID_SALA_PROFESSOR":'. $data[54] . ',"ID_LABORATORIO_INFORMATICA":'. $data[55] . ',"ID_LABORATORIO_CIENCIAS":'. $data[56] . ',"ID_SALA_ATENDIMENTO_ESPECIAL":'. $data[57] . ',"ID_QUADRA_ESPORTES_COBERTA":'. $data[58] . ',"ID_QUADRA_ESPORTES_DESCOBERTA":'. $data[59] . ',"ID_COZINHA":'. $data[60] . ',"ID_BIBLIOTECA":'. $data[61] . ',"ID_SALA_LEITURA":'. $data[62] . ',"ID_PARQUE_INFANTIL":'. $data[63] . ',"ID_BERCARIO":'. $data[64] . ',"ID_SANITARIO_FORA_PREDIO":'. $data[65] . ',"ID_SANITARIO_DENTRO_PREDIO":'. $data[66] . ',"ID_SANITARIO_EI":'. $data[67] . ',"ID_SANITARIO_PNE":'. $data[68] . ',"ID_DEPENDENCIAS_PNE":'. $data[69] . ',"ID_SECRETARIA":'. $data[70] . ',"ID_BANHEIRO_CHUVEIRO":'. $data[71] . ',"ID_REFEITORIO":'. $data[72] . ',"ID_DESPENSA":'. $data[73] . ',"ID_ALMOXARIFADO":'. $data[74] . ',"ID_AUDITORIO":'. $data[75] . ',"ID_PATIO_COBERTO":'. $data[76] . ',"ID_PATIO_DESCOBERTO":'. $data[77] . ',"ID_ALOJAM_ALUNO":'. $data[78] . ',"ID_ALOJAM_PROFESSOR":'. $data[79] . ',"ID_AREA_VERDE":'. $data[80] . ',"ID_LAVANDERIA":'. $data[81] . ',"ID_DEPENDENCIAS_OUTRAS":'. $data[82] . ',"NUM_SALAS_EXISTENTES":'. $data[83] . ',"NUM_SALAS_UTILIZADAS":'. $data[84] . ',"NUM_EQUIP_TV":'. $data[85] . ',"NUM_EQUIP_VIDEOCASSETE":'. $data[86] . ',"NUM_EQUIP_DVD":'. $data[87] . ',"NUM_EQUIP_PARABOLICA":'. $data[88] . ',"NUM_EQUIP_COPIADORA":'. $data[89] . ',"NUM_EQUIP_RETRO":'. $data[90] . ',"NUM_EQUIP_IMPRESSORA":'. $data[91] . ',"NUM_EQUIP_SOM":'. $data[92] . ',"NUM_EQUIP_MULTIMIDIA":'. $data[93] . ',"NUM_EQUIP_FAX":'. $data[94] . ',"NUM_EQUIP_FOTO":'. $data[95] . ',"NUM_COMPUTADORES":'. $data[96] . ',"NUM_COMP_ADMINISTRATIVOS":'. $data[97] . ',"NUM_COMP_ALUNOS":'. $data[98] . ',"ID_INTERNET":'. $data[99] . ',"ID_BANDA_LARGA":'. $data[100] . ',"NUM_FUNCIONARIOS":'. $data[101] . ',"ID_ALIMENTACAO":'. $data[102] . ',"ID_AEE":'. $data[103] . ',"ID_MOD_ATIV_COMPLEMENTAR":'. $data[104] . ',"ID_MOD_ENS_REGULAR":'. $data[105] . ',"ID_REG_INFANTIL_CRECHE":'. $data[106] . ',"ID_REG_INFANTIL_PREESCOLA":'. $data[107] . ',"ID_REG_FUND_8_ANOS":'. $data[108] . ',"ID_REG_FUND_9_ANOS":'. $data[109] . ',"ID_REG_MEDIO_MEDIO":'. $data[110] . ',"ID_REG_MEDIO_INTEGRADO":'. $data[111] . ',"ID_REG_MEDIO_NORMAL":'. $data[112] . ',"ID_REG_MEDIO_PROF":'. $data[113] . ',"ID_MOD_ENS_ESP":'. $data[114] . ',"ID_ESP_INFANTIL_CRECHE":'. $data[115] . ',"ID_ESP_INFANTIL_PREESCOLA":'. $data[116] . ',"ID_ESP_FUND_8_ANOS":'. $data[117] . ',"ID_ESP_FUND_9_ANOS":'. $data[118] . ',"ID_ESP_MEDIO_MEDIO":'. $data[119] . ',"ID_ESP_MEDIO_INTEGRADO":'. $data[120] . ',"ID_ESP_MEDIO_NORMAL":'. $data[121] . ',"ID_ESP_MEDIO_PROFISSIONAL":'. $data[122] . ',"ID_ESP_EJA_FUNDAMENTAL":'. $data[123] . ',"ID_ESP_EJA_MEDIO":'. $data[124] . ',"ID_MOD_EJA":'. $data[125] . ',"ID_EJA_FUNDAMENTAL":'. $data[126] . ',"ID_EJA_MEDIO":'. $data[127] . ',"ID_EJA_PROJOVEM":'. $data[128] . ',"ID_FUND_CICLOS":'. $data[129] . ',"ID_LOCALIZACAO_DIFERENCIADA":'. $data[130] . ',"ID_MATERIAL_ESP_NAO_UTILIZA":'. $data[131] . ',"ID_MATERIAL_ESP_QUILOMBOLA":'. $data[132] . ',"ID_MATERIAL_ESP_INDIGENA":'. $data[133] . ',"ID_EDUCACAO_INDIGENA":'. $data[134] . ',"ID_LINGUA_INDIGENA":'. $data[135] . ',"FK_COD_LINGUA_INDIGENA":'. $data[136] . ',"ID_LINGUA_PORTUGUESA":'. $data[137] . ',"ID_ESPACO_TURMA_PBA":'. $data[138] . ',"ID_ABRE_FINAL_SEMANA":'. $data[139] . ',"ID_PROPOSTA_PEDAG_ALTERNANCIA":'. $data[140] . ','; 
+    echo $dados1;
+	$escreve = fwrite($fp, $dados1);
+	}
+	$escreve = fwrite($fp, '}');
+    fclose($handle);
+}
+?>
+
